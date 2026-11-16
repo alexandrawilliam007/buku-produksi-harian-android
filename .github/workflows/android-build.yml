@@ -35,3 +35,6 @@ jobs:
           name: buku-produksi-harian-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
+git add -f gradlew gradlew.bat gradle/
+git commit -m "Add missing Gradle wrapper files"
+git push origin main
