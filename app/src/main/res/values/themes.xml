@@ -1,0 +1,3 @@
+<resources>
+    <style name="Theme.BukuProduksiHarian" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
