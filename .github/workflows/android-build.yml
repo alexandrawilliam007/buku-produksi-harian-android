@@ -2,7 +2,10 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -23,7 +26,9 @@ jobs:
 
       - name: Generate Gradle Wrapper and Build
         run: |
-          gradle wrapper --gradle-version 8.5 || (sudo apt-get update && sudo apt-get install -y gradle && gradle wrapper --gradle-version 8.5)
+          if [ ! -f "./gradlew" ]; then
+            gradle wrapper --gradle-version 8.5 || (sudo apt-get update && sudo apt-get install -y gradle && gradle wrapper --gradle-version 8.5)
+          fi
           chmod +x gradlew
           ./gradlew assembleDebug
 
